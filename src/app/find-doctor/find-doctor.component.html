@@ -1,0 +1,17 @@
+<h1>
+    Enter doctor Details:
+</h1>
+
+<form [formGroup]="doctorForm" (ngSubmit)="submit()" #f="ngForm">
+    <div style="display:flex; gap :20px;">
+
+        <label for="doctor">Select Doctor: </label>
+        <select name="doctor" id="doctor" formControlName="doctorId" ngModel>
+            <ng-container *ngFor="let row of list">
+                <option [value]=row.id>{{row.name}}({{row.specialization}})</option>
+            </ng-container>
+        </select>
+
+    </div>
+    <button class="btn btn-primary button">Fetch</button>
+</form>

@@ -1,0 +1,26 @@
+<div class="container" style="width:inherit; border: 2px solid black;">
+
+    <div class="header">
+        <h1>Patient Card</h1>
+        <h4>Date: {{date | date:"longDate"}}</h4>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-mg-8 col-xs-12">
+            <p>Id: <span class="data">64</span> </p>
+            <p>Name: <span class="data">Poorna</span> </p>
+            <p>Age: <span class="data">22</span> </p>
+            <label for="prescription">Prescription:</label>
+        </div>
+        <div class="col-lg-6 col-mg-8 col-xs-12 right-col">
+            <p>Doctor:</p>
+            <p><span class="data">Radha Krishna</span> </p>
+            <p> <span class="data-small">Orthopediac</span> </p>
+        </div>
+        <div class="container" style="width:inherit; ">
+            <input type="text" name="prescription" style="width: 100%; height: 200px">
+        </div>
+    </div>
+
+    <button class="btn btn-primary" style="margin: auto;">Print the card</button>
+</div>

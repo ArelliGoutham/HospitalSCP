@@ -1,0 +1,13 @@
+<h1>
+    Enter patient Details:
+</h1>
+
+<form [formGroup]="patientForm" (ngSubmit)="submit()" #f="ngForm">
+    <div style="display:flex; gap :20px;">
+
+        <label for="patient">Select Doctor: </label>
+        <input type="text" formControlName="patientId" name="patient" required>
+
+    </div>
+    <button class="btn btn-primary button">Fetch</button>
+</form>

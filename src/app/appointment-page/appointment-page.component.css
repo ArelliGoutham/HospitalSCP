@@ -1,0 +1,16 @@
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin: 20px;
+}
+label {
+  width: 200px;
+  margin: 0;
+}
+
+input,
+select {
+  width: 400px;
+  height: 30px;
+}

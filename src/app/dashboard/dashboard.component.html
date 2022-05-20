@@ -1,0 +1,16 @@
+<!-- header -->
+
+<!-- navigate buttons -->
+<div style="display: flex; gap: 10px;">
+    <button class="btn btn-debug" routerLinkActive="active" [routerLink]="['/dashboard/appointment']">Book
+        Appointment</button>
+    <button class="btn btn-debug" routerLinkActive="active" [routerLink]="['/dashboard/find-doctor']">Find
+        Doctor</button>
+    <button class="btn btn-debug" routerLinkActive="active" [routerLink]="['/dashboard/find-patient']">Find
+        Patient</button>
+    <button class="btn btn-debug" routerLinkActive="active" [routerLink]="['/dashboard/doctor-portal']">Doctor
+        Portal</button>
+    <button class="btn btn-debug" routerLinkActive="active" [routerLink]="['/dashboard/admin-portal']">Admin
+        Portal</button>
+</div>
+<router-outlet></router-outlet>

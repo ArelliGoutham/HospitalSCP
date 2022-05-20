@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-xs-16">
+            <form action="">
+
+                <h1>
+                    Enter Patient Details:
+                </h1>
+
+                <div class="input-row">
+                    <label for="name">Name:</label>
+                    <input class="form-control" type="text" name="name" required>
+                </div>
+                <div class="input-row">
+                    <label for="name">Age:</label>
+                    <input class="form-control" type="text" name="name" required>
+                </div>
+                <div class="input-row">
+                    <label for="name">Appointment Date:</label>
+                    <input class="form-control" type="date" name="name" required>
+
+                </div>
+                <div class="input-row">
+                    <label for="doctor">Select Doctor: </label>
+                    <select class="form-control" name="doctor" id="doctor" formControlName="doctorId" ngModel>
+                        <ng-container *ngFor="let row of list">
+                            <option [value]=row.id>{{row.name}}({{row.specialization}})</option>
+                        </ng-container>
+                    </select>
+
+                </div>
+                <button class="btn btn-primary"> Book Appointment</button>
+            </form>
+        </div>
+        <div class="col-md-6 col-xs-16">
+            <app-patient-card></app-patient-card>
+        </div>
+    </div>
+</div>
