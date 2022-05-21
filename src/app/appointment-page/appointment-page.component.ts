@@ -13,6 +13,7 @@ export class AppointmentPageComponent implements OnInit {
 
   list: Doctor[] = [];
 
+  isAppointmentBooked: boolean = false;
   ngOnInit(): void {
     this.http.get<Doctor[]>("http://localhost:8061/doctors",
       {
@@ -24,6 +25,14 @@ export class AppointmentPageComponent implements OnInit {
         }
         console.log(resp);
       })
+  }
+
+  bookAppointment() {
+    // post.
+    // patientId
+
+    this.isAppointmentBooked = true;
+
   }
 
 }
