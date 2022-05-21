@@ -1,17 +1,29 @@
-<h1>
-    Enter doctor Details:
-</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-xs-12 ">
 
-<form [formGroup]="doctorForm" (ngSubmit)="submit()" #f="ngForm">
-    <div style="display:flex; gap :20px;">
+            <h1>
+                Enter doctor Details:
+            </h1>
 
-        <label for="doctor">Select Doctor: </label>
-        <select name="doctor" id="doctor" formControlName="doctorId" ngModel>
-            <ng-container *ngFor="let row of list">
-                <option [value]=row.id>{{row.name}}({{row.specialization}})</option>
-            </ng-container>
-        </select>
+            <form [formGroup]="doctorForm" (ngSubmit)="submit()" #f="ngForm">
+                <div style="display:flex; gap :20px;">
+
+                    <label for="doctor">Select Doctor: </label>
+                    <select name="doctor" id="doctor" formControlName="doctorId" ngModel>
+                        <ng-container *ngFor="let row of list">
+                            <option [value]=row.id>{{row.name}}({{row.specialization}})</option>
+                        </ng-container>
+                    </select>
+
+                </div>
+                <button class="btn btn-primary button">Fetch</button>
+            </form>
+        </div>
+
+        <div class="col-md-6 col-xs-12 ">
+            <app-doctor-card *ngIf="showDoctorCard"></app-doctor-card>
+        </div>
 
     </div>
-    <button class="btn btn-primary button">Fetch</button>
-</form>
+</div>

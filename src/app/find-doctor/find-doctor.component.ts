@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpStatusCode } from '@angular/common/http'
-import { Doctor } from '../data/data-models';
+import { Doctor, DoctorPatientCount } from '../data/data-models';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DataStorageService } from '../data/data-storeage.service';
 
 @Component({
   selector: 'app-find-doctor',
@@ -10,11 +11,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class FindDoctorComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private dataStore: DataStorageService) { }
 
   list: Doctor[] = [];
 
   doctorForm!: FormGroup;
+  showDoctorCard: boolean = false;
   ngOnInit(): void {
     this.http.get<Doctor[]>("http://localhost:8061/doctors",
       {
@@ -32,9 +34,19 @@ export class FindDoctorComponent implements OnInit {
     })
   }
   submit() {
+    this.showDoctorCard = false;
     if (this.doctorForm.value.doctorId !== null) {
       let url: string = "http://localhost:8061/doctor/" + this.doctorForm.value.doctorId;
-      this.http.get(url).subscribe(resp => {
+      this.http.get<DoctorPatientCount>(url, {
+        observe: "response"
+      }).subscribe(resp => {
+        if (resp.status == HttpStatusCode.Ok && resp.body != null) {
+          this.dataStore.setDoctorPatientCount(resp.body);
+          this.showDoctorCard = true;
+        }
+        if (resp.status == HttpStatusCode.NoContent) {
+          alert("Data Not available.\nSorry for the Inconvinence");
+        }
         console.log(resp);
       })
     }

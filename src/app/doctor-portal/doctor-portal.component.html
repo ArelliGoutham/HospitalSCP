@@ -1,1 +1,14 @@
-<p>doctor-portal works!</p>
+<div class="container">
+    <div class="row">
+        <form *ngIf="!isDoctorValidated" [formGroup]="docValidateForm" (ngSubmit)="submit()" #f="ngForm">
+            <div style="display:flex; gap :20px;">
+
+                <label for="doctor">Enter Doctor Id: </label>
+                <input type="text" class="" formControlName="id" name="doctor" required>
+
+            </div>
+            <button class="btn btn-primary button">Validate</button>
+        </form>
+        <app-find-patient *ngIf="isDoctorValidated"></app-find-patient>
+    </div>
+</div>

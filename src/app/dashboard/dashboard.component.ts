@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataStorageService } from '../data/data-storeage.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private dataStore: DataStorageService) { }
 
   ngOnInit(): void {
   }
@@ -21,11 +22,13 @@ export class DashboardComponent implements OnInit {
 
   }
   findPatient() {
-    this.router.navigate(['/dashboard/find-patient'])
+    this.dataStore.findPatientSelected = true;
+    this.dataStore.doctorPortalSelected = false;
 
   }
   doctorPortal() {
-    this.router.navigate(['/dashboard/doctor-portal'])
+    this.dataStore.doctorPortalSelected = true;
+    this.dataStore.findPatientSelected = false;
 
   }
   adminPortal() {

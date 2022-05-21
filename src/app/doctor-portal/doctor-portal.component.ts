@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-doctor-portal',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorPortalComponent implements OnInit {
 
-  constructor() { }
+  docValidateForm: FormGroup;
+  isDoctorValidated: boolean = false;
+  constructor() {
+    this.docValidateForm = new FormGroup({
+      "id": new FormControl(null, Validators.required)
+    })
+  }
 
   ngOnInit(): void {
   }
+  submit() {
+    this.isDoctorValidated = true;
 
+
+
+  }
 }

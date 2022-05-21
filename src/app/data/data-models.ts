@@ -15,3 +15,9 @@ export interface Patient {
     dateOfVisit: string
     doctorName: string
 }
+
+export interface DoctorPatientCount {
+    name: string
+    specialization: string
+    noOfPatients: number
+}

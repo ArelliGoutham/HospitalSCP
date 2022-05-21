@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-xs-16">
-            <form action="">
+            <form action="" (ngSubmit)="bookAppointment()">
 
                 <h1>
                     Enter Patient Details:
@@ -33,7 +33,7 @@
             </form>
         </div>
         <div class="col-md-6 col-xs-16">
-            <app-patient-card></app-patient-card>
+            <app-patient-card *ngIf="isAppointmentBooked"></app-patient-card>
         </div>
     </div>
 </div>
