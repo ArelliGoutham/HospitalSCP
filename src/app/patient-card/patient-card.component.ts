@@ -1,3 +1,4 @@
+import { HttpClient, HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Patient } from '../data/data-models';
@@ -14,8 +15,9 @@ export class PatientCardComponent implements OnInit {
   patientDetails: Patient;
 
   prescriptionForm!: FormGroup;
-  constructor(private dataStore: DataStorageService) {
+  constructor(private dataStore: DataStorageService, private http: HttpClient) {
     this.patientDetails = dataStore.getPatientDetails();
+    console.log(this.patientDetails)
     if (dataStore.findPatientSelected) {
       this.isPescriptionEnabled = false;
     }
@@ -25,7 +27,7 @@ export class PatientCardComponent implements OnInit {
 
     this.prescriptionForm = new FormGroup({
       "id": new FormControl(this.patientDetails.id),
-      "prescription": new FormControl(null, Validators.required),
+      "prescription": new FormControl(this.patientDetails.prescription, Validators.required),
     })
   }
 
@@ -45,7 +47,14 @@ export class PatientCardComponent implements OnInit {
   }
 
   savePrescription() {
-    alert("Prescription Saved");
+
+    this.http.patch("http://localhost:8059/prescription", this.prescriptionForm.value, {
+      observe: "response"
+    }).subscribe(resp => {
+      if (resp.status == HttpStatusCode.Ok) {
+        alert("Prescription Updated");
+      }
+    })
     console.log(this.prescriptionForm.value);
   }
 }

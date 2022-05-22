@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-xs-16">
-            <form action="" (ngSubmit)="bookAppointment()">
+            <form action="" [formGroup]="appointmentForm" (ngSubmit)="bookAppointment()">
 
                 <h1>
                     Enter Patient Details:
@@ -9,22 +9,22 @@
 
                 <div class="input-row">
                     <label for="name">Name:</label>
-                    <input class="form-control" type="text" name="name" required>
+                    <input class="form-control" formControlName="name" type="text" name="name" required>
                 </div>
                 <div class="input-row">
                     <label for="name">Age:</label>
-                    <input class="form-control" type="text" name="name" required>
+                    <input class="form-control" formControlName="age" type="number" name="name" required>
                 </div>
                 <div class="input-row">
                     <label for="name">Appointment Date:</label>
-                    <input class="form-control" type="date" name="name" required>
+                    <input class="form-control" formControlName="dateOfVisit" type="date" name="name" required>
 
                 </div>
                 <div class="input-row">
                     <label for="doctor">Select Doctor: </label>
-                    <select class="form-control" name="doctor" id="doctor" formControlName="doctorId" ngModel>
+                    <select class="form-control" name="doctor" id="doctor" formControlName="visitedDoctor" ngModel>
                         <ng-container *ngFor="let row of list">
-                            <option [value]=row.id>{{row.name}}({{row.specialization}})</option>
+                            <option [ngValue]=+row.id>{{row.name}}({{row.specialization}})</option>
                         </ng-container>
                     </select>
 
@@ -33,7 +33,8 @@
             </form>
         </div>
         <div class="col-md-6 col-xs-16">
-            <app-patient-card *ngIf="isAppointmentBooked"></app-patient-card>
+            <router-outlet></router-outlet>
+            <!-- <app-patient-card [ngIf]="isAppointmentBooked"></app-patient-card> -->
         </div>
     </div>
 </div>

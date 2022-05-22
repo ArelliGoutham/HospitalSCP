@@ -2,6 +2,7 @@
   background-color: red;
 }
 
-.background {
-  /* background: linear-gradient (270deg, #63daff 0%, #f6ffbd 97.4%); */
+button:focus {
+  outline: none;
+  border: none;
 }

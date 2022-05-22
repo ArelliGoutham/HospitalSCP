@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+.btn-primary,
+.btn {
+  background: #fa9e00;
+  color: white;
+  border: none;
+  border-radius: 0;
+}
+
+.btn-primary:hover {
+  background: #fa9e00b9;
+}
+
+.btn-primary:focus {
+  background: #fa9e00 !important;
+}
+
+.btn:focus {
+  background: #fa9e00;
+  color: white;
+  border: none;
+  border-radius: 0;
+  outline: none !important;
+}
+
+.gradient-background {
+  background-color: linear-gradient (270deg, #63daff 0%, #f6ffbd 97.4%) !important;
+}

@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PatientCardComponent } from './patient-card/patient-card.component';
 import { DoctorCardComponent } from './find-doctor/doctor-card/doctor-card.component';
+import { CreateDoctorComponent } from './admin-portal/create-doctor/create-doctor.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DoctorCardComponent } from './find-doctor/doctor-card/doctor-card.compo
     DoctorPortalComponent,
     AdminPortalComponent,
     PatientCardComponent,
-    DoctorCardComponent
+    DoctorCardComponent,
+    CreateDoctorComponent
   ],
   imports: [
     BrowserModule,

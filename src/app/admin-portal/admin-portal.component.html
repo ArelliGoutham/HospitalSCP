@@ -1,1 +1,18 @@
-<p>admin-portal works!</p>
+<div class="container">
+    <div class="row">
+        <div style="display: flex; justify-content: center;margin-top: 50px;">
+            <div>
+                <form *ngIf="!isAdminValidated" [formGroup]="adminValidateForm" (ngSubmit)="submit()" #f="ngForm">
+                    <div style="display:flex; gap :20px;">
+
+                        <label for="admin">Enter Admin Id: </label>
+                        <input type="text" class="" formControlName="id" name="admin" required>
+
+                    </div>
+                    <button class="btn btn-primary button">Validate</button>
+                </form>
+                <app-create-doctor *ngIf="isAdminValidated"></app-create-doctor>
+            </div>
+        </div>
+    </div>
+</div>

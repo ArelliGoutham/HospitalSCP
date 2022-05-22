@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DoctorPortalComponent } from './doctor-portal/doctor-portal.component';
 import { FindDoctorComponent } from './find-doctor/find-doctor.component';
 import { FindPatientComponent } from './find-patient/find-patient.component';
+import { PatientCardComponent } from './patient-card/patient-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 const routes: Routes = [
@@ -13,10 +14,23 @@ const routes: Routes = [
   { path: "welcome", component: WelcomePageComponent },
   {
     path: "dashboard", component: DashboardComponent, children: [
-      { path: "appointment", component: AppointmentPageComponent },
+      {
+        path: "appointment", component: AppointmentPageComponent, children: [
+          { path: "patient-card", component: PatientCardComponent }
+        ]
+      },
       { path: "find-doctor", component: FindDoctorComponent },
-      { path: "find-patient", component: FindPatientComponent },
-      { path: "doctor-portal", component: DoctorPortalComponent },
+      {
+        path: "find-patient", component: FindPatientComponent, children: [
+          { path: "patient-card", component: PatientCardComponent }
+        ]
+      },
+      {
+        path: "doctor-portal", component: DoctorPortalComponent, children: [
+          { path: "patient-card", component: PatientCardComponent }
+
+        ]
+      },
       { path: "admin-portal", component: AdminPortalComponent },
     ]
   }

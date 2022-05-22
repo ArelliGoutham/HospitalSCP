@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <form [formGroup]="createDoctorForm" (ngSubmit)="createDoctor()" #f="ngForm">
+
+                <h1>
+                    Enter Doctor Details:
+                </h1>
+
+                <div class="input-row">
+                    <label for="name">Name:</label>
+                    <input class="form-control" formControlName="name" type="text" name="name" required>
+                </div>
+                <div class="input-row">
+                    <label for="name">Age:</label>
+                    <input class="form-control" formControlName="age" type="number" name="name" required>
+                </div>
+                <div class="input-row">
+                    <label for="name">Gender:</label>
+                    <select name="gender" formControlName="gender">
+                        <option value=""></option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <!-- <input class="form-control" type="text" name="name" required> -->
+
+                </div>
+                <div class="input-row">
+                    <label for="doctor">Specialization: </label>
+                    <input class="form-control" formControlName="specialization" type="text" name="doctor" id="">
+
+                </div>
+                <button class="btn btn-primary"> Create Doctor</button>
+            </form>
+        </div>
+    </div>
+</div>

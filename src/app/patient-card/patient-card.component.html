@@ -21,9 +21,10 @@
             <div class="container" style="width:inherit; ">
                 <!-- <input type="text" name="prescription" style="width: 100%; height: 200px"> -->
                 <textarea *ngIf="!getPescriptionEnabled()" formControlName="prescription" name="prescription" id=""
-                    cols="68" rows="10" [disabled]="!getPescriptionEnabled()"></textarea>
+                    cols="68" rows="10"
+                    [disabled]="!getPescriptionEnabled()">{{getPatientDetails().prescription}}</textarea>
                 <textarea *ngIf="getPescriptionEnabled()" cols="68" rows="10"
-                    [disabled]="getPescriptionEnabled()"></textarea>
+                    [disabled]="getPescriptionEnabled()">{{getPatientDetails().prescription}}</textarea>
             </div>
         </div>
         <div class="col-xs-12 col-xs-offset-5">

@@ -11,8 +11,8 @@ export interface Patient {
     id: number
     specialization: string
     age: number
-    prescription: string
-    dateOfVisit: string
+    prescription?: string
+    dateOfVisit: Date
     doctorName: string
 }
 

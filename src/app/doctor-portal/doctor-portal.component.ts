@@ -1,3 +1,4 @@
+import { HttpClient, HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -10,7 +11,7 @@ export class DoctorPortalComponent implements OnInit {
 
   docValidateForm: FormGroup;
   isDoctorValidated: boolean = false;
-  constructor() {
+  constructor(private http: HttpClient) {
     this.docValidateForm = new FormGroup({
       "id": new FormControl(null, Validators.required)
     })
@@ -19,7 +20,18 @@ export class DoctorPortalComponent implements OnInit {
   ngOnInit(): void {
   }
   submit() {
-    this.isDoctorValidated = true;
+
+    this.http.post("http://localhost:8061/doctor/" + this.docValidateForm.value.id, null, {
+      observe: "response",
+    }).subscribe(resp => {
+      if (resp.status == HttpStatusCode.Ok) {
+        this.isDoctorValidated = true;
+      }
+      if (resp.status == HttpStatusCode.NotFound) {
+        console.log("badre")
+        alert("Not Authorized");
+      }
+    })
 
 
 
