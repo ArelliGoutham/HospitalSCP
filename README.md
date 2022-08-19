@@ -1,6 +1,7 @@
 # HospitalSCP
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.1.
+Created this project with basic funcionality of having few components like a self care portal for a hospital
+
 
 ## Development server
 
